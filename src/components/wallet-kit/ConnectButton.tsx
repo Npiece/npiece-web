@@ -1,65 +1,82 @@
-// Copyright (c) Mysten Labs, Inc.
-// SPDX-License-Identifier: Apache-2.0
-
 import {ComponentProps, ReactNode, useState} from "react";
-import {ConnectModal} from "./ConnectModal";
-import {Button} from "./utils/ui";
-import {useWalletKit} from "./WalletKitContext";
 import {Menu} from "@headlessui/react";
+import {ConnectModal, useWalletKit} from "@mysten/wallet-kit";
 import {formatAddress} from "@mysten/sui.js";
-import {styled} from "@stitches/react";
-import {CheckIcon, ChevronIcon} from "./utils/icons";
+import {styled} from "styled-components";
+import {CheckIcon, ChevronIcon} from "../../assets/Icons";
 
 interface ConnectButtonProps extends ComponentProps<typeof Button> {
   connectText?: ReactNode;
   connectedText?: ReactNode;
 }
+interface ButtonProps {
+  color?: string;
+}
 
-const MenuItems = styled(Menu.Items, {
-  position: "absolute",
-  right: 0,
-  marginTop: "$1",
-  width: 165,
-  maxHeight: 200,
-  overflow: "auto",
-  borderRadius: "$buttonLg",
-  backgroundColor: "$background",
-  color: "$textDark",
-  boxShadow: "$button",
-  zIndex: 10,
-  padding: "$2",
-  display: "flex",
-  flexDirection: "column",
-  gap: "$2",
-});
+interface AccountProps {
+  active?: boolean;
+}
 
-const Account = styled("button", {
-  border: 0,
-  display: "flex",
-  justifyContent: "space-between",
-  alignItems: "center",
-  backgroundColor: "white",
-  fontFamily: "$mono",
-  padding: "$2",
-  color: "#0A0A0A",
-  cursor: "pointer",
-  textAlign: "left",
-  fontSize: 14,
-  borderRadius: 3,
+const Button = styled.button<ButtonProps>`
+  cursor: pointer;
+  border: none;
+  font-weight: bold;
+  font-size: 1.3em;
+  text-decoration: none;
+  padding: 15px 24px;
+  width: 160px;
+  border-radius: 12px;
+  background-color: ${({color}) =>
+    color == "primary" ? "#2a2a2f" : color == "connected" ? "#fff" : "#2a2a2f"};
+  color: ${({color}) =>
+    color == "primary" ? "#fff" : color == "connected" ? "#000" : "#fff"};
+  box-shadow: ${({color}) =>
+    color == "primary"
+      ? "0px 4px 12px rgba(0, 0, 0, 0.1)"
+      : color == "connected"
+      ? "0px 4px 12px rgba(0, 0, 0, 0.1)"
+      : "none"};
+  &:hover {
+    background-color: #4a4a4f;
+  }
+`;
 
-  "&:hover": {
-    color: "#0A0A0A",
-    backgroundColor: "#EFEFEF",
-  },
+const MenuItems = styled(Menu.Items)`
+  position: absolute;
+  display: flex;
+  right: 0;
+  margin-top: 4px;
+  width: 160px;
+  max-height: 200;
+  overflow: auto;
+  border-radius: 12px;
+  background-color: #fff;
+  color: #000;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  padding: 4px;
+  flex-direction: column;
+  gap: 8px;
+`;
 
-  variants: {
-    active: {
-      true: {
-        color: "#000",
-      },
-    },
-  },
-});
+const Account = styled.button<AccountProps>`
+  border: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  padding: 8px;
+  color: ${({active}) => (active ? "#000" : "#0a0a0a")};
+  cursor: pointer;
+  text-align: left;
+  font-size: 1.3em;
+  border-radius: 3;
+
+  &:hover {
+    color: #0a0a0a;
+    background-color: #efefef;
+  }
+`;
 
 export function ConnectButton({
   connectText = "Connect Wallet",
@@ -72,17 +89,20 @@ export function ConnectButton({
   return (
     <>
       {currentAccount ? (
-        <Menu as="div" style={{position: "relative", display: "inline-block"}}>
+        <Menu
+          as="div"
+          style={{
+            position: "relative",
+            display: "inline-block",
+          }}
+        >
           <Menu.Button
             as={Button}
             color="connected"
-            size="lg"
-            css={{
-              fontFamily: "$mono",
+            style={{
               display: "inline-flex",
               justifyContent: "space-between",
               alignItems: "center",
-              gap: "$2",
             }}
             type="button"
           >
@@ -115,16 +135,13 @@ export function ConnectButton({
             />
 
             <Menu.Item>
-              <Account css={{fontFamily: "$sans"}} onClick={() => disconnect()}>
-                Disconnect
-              </Account>
+              <Account onClick={() => disconnect()}>Disconnect</Account>
             </Menu.Item>
           </MenuItems>
         </Menu>
       ) : (
         <Button
           color="primary"
-          size="lg"
           onClick={() => setConnectModalOpen(true)}
           type="button"
           {...props}
