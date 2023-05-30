@@ -21,7 +21,7 @@ const Button = styled.button<ButtonProps>`
   cursor: pointer;
   border: none;
   font-weight: bold;
-  font-size: 1.3em;
+  font-size: 1.2em;
   text-decoration: none;
   padding: 15px 24px;
   width: 160px;
@@ -69,7 +69,7 @@ const Account = styled.button<AccountProps>`
   color: ${({active}) => (active ? "#000" : "#0a0a0a")};
   cursor: pointer;
   text-align: left;
-  font-size: 1.3em;
+  font-size: 1.2em;
   border-radius: 3;
 
   &:hover {
