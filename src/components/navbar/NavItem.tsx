@@ -1,5 +1,6 @@
 import {NavLink, NavLinkProps} from "react-router-dom";
 import {ReactNode, SetStateAction, Dispatch} from "react";
+import React from "react";
 
 interface NavItemProps extends NavLinkProps {
   to: string;

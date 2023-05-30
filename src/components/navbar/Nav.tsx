@@ -4,6 +4,7 @@ import NavMenu from "./NavMenu";
 import {Npiece} from "../../assets/Npiece";
 import styled from "styled-components";
 import {ConnectButton} from "../wallet-kit/ConnectButton";
+import React from "react";
 
 // Use styled components to build dynamic bugerwrapper, as a show case using css from tsx with variable
 interface BurgerWrapperProps {

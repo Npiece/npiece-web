@@ -1,3 +1,4 @@
+import React from "react";
 import {useState, ReactNode, ChangeEvent, FormEvent} from "react";
 
 interface NftMintProps {
