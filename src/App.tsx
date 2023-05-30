@@ -3,7 +3,6 @@ import Nav from "./components/navbar/Nav";
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import {IntroPage} from "./pages/Intro";
 import {Npunks} from "./pages/Npunks";
-import React from "react";
 
 function App() {
   return (
