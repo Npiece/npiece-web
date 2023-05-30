@@ -1,0 +1,86 @@
+.page {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  margin: 0 auto;
+  padding: 5em 0;
+}
+
+.npunk {
+  position: fixed;
+  display: flex;
+  flex-direction: row;
+  width: 700px;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 1em;
+  z-index: 2;
+  border: none;
+}
+
+.npunk-input-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 300px;
+  width: 100%;
+}
+
+.npunk-input {
+  width: 200px;
+  padding: 5px 5px;
+  /* font-size: 1em; */
+}
+
+.npunk-textarea {
+  width: 200px;
+  height: 80px;
+  padding: 5px 5px;
+  resize: none;
+}
+
+.npunk-profile {
+  border-radius: 5%;
+  width: 300px;
+  height: 300px;
+  background-color: #fff;
+  margin: 1em;
+}
+
+.npunk-mint {
+  width: 200px;
+  height: 100px;
+  border-radius: 20px;
+}
+
+@media (max-width: 768px) {
+  .npunk {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .npunk-input-container {
+    height: 200px;
+  }
+
+  .npunk-input {
+    width: 300px;
+  }
+
+  .npunk-textarea {
+    width: 300px;
+    height: 50px;
+  }
+
+  .npunk-mint {
+    width: 300px;
+    height: 50px;
+    border-radius: 10px;
+  }
+}

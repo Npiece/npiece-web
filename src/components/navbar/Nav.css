@@ -1,0 +1,107 @@
+:root {
+  --gap-between-menuitem: 1em;
+}
+
+.nav {
+  left: 0;
+  top: 0;
+  position: fixed;
+  z-index: 2;
+  /* this makes nav occupy the entire width of its parent container. */
+  width: 100%;
+}
+
+.nav_logo {
+  text-decoration: none;
+  color: #fff;
+  margin-right: 2em;
+}
+
+.nav_menu_horizontal {
+  /* 
+  this is a shorthand for `flex-grow: 1; flex-shrink: 1; flex-basis: 0%
+  and it allows `nav_menu` class to take up the remaining space after 
+  the logo and button component have been laid out
+  */
+  flex: 1;
+  display: flex;
+  padding-left: 4em;
+}
+
+.nav_menu_vertical {
+  display: flex;
+  flex-direction: column;
+  font-size: 2em;
+  height: 100%;
+  align-content: center;
+  text-align: center;
+  margin-bottom: 3em;
+}
+
+.nav_item {
+  text-decoration: none;
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #2a2a2f;
+  margin-right: 2em;
+  align-items: center;
+}
+
+.nav_item:hover {
+  color: #fff;
+}
+
+.nav_item.active {
+  color: #fff;
+}
+
+.nav_item.vertical {
+  margin-top: var(--gap-between-menuitem);
+
+  width: 100%;
+  text-align: center;
+}
+
+.nav_container {
+  width: 100%;
+  max-width: 1400px;
+  /* below makes the container centered to nav element */
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1em;
+  padding-left: 2em;
+  padding-right: 2em;
+}
+
+.menu_context {
+  display: flex;
+  flex: 1;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menu_slider {
+  position: fixed;
+  background: #18181c;
+  z-index: -2;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  /* cubic-bezier is used to define custom timing function for CSS animations and transitions */
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.menu_slider ul li {
+  margin-top: var(--gap-between-menuitem);
+  list-style: none;
+  text-decoration: none;
+}
