@@ -1,0 +1,17 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap");
+@font-face {
+  font-family: "Pixeled";
+  src: url("./fonts/Pixeled.ttf") format("truetype");
+}
+
+$base-font-size: 12px;
+$background-color: #0d0d11;
+$container-color: #2a2a2f;
+$slidebar-color: #18181c;
+$font-stack: "Noto Sans KR", "Pixeled", sans-serif;
+$primary-color: #fff;
+$secondary-color: #2a2a2f;
+$max-width: 1400px;
+$min-height: 400px;
+$mobile-width: 768px;
+$gap-menu-items: 1em;

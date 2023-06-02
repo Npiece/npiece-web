@@ -1,16 +1,53 @@
-.page {
-  position: relative;
+@use "../default.scss";
+
+.npunk-box {
+  position: absolute;
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100vh;
-  margin: 0 auto;
-  padding: 5em 0;
+  /* align-items: center; */
+}
+
+.npunk-typed {
+  display: inline-block;
+  position: relative;
+  font-size: 1.5em;
+  max-width: 700px;
+  padding: 0.2em;
+}
+
+.npunk-typed p.sequence1,
+.npunk-typed p.sequence2 {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 0;
+  animation: typing;
+  animation-duration: 1.5s;
+  animation-timing-function: steps(30, end);
+  animation-fill-mode: forwards;
+}
+
+.npunk-typed p.sequence1 {
+  animation-delay: 0s;
+}
+
+.npunk-typed p.sequence2 {
+  animation-delay: 1.5s;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
 }
 
 .npunk {
-  position: fixed;
+  /* position: fixed; */
+  position: relative;
   display: flex;
   flex-direction: row;
   width: 700px;
@@ -34,6 +71,7 @@
 .npunk-input {
   width: 200px;
   padding: 5px 5px;
+  border-radius: 8px;
   /* font-size: 1em; */
 }
 
@@ -42,14 +80,15 @@
   height: 80px;
   padding: 5px 5px;
   resize: none;
+  border-radius: 8px;
 }
 
 .npunk-profile {
-  border-radius: 5%;
+  display: block;
   width: 300px;
   height: 300px;
-  background-color: #fff;
   margin: 1em;
+  border-radius: 50%;
 }
 
 .npunk-mint {
@@ -58,7 +97,7 @@
   border-radius: 20px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: default.$mobile-width) {
   .npunk {
     width: 100%;
     flex-direction: column;

@@ -33,7 +33,7 @@ export function Space(props: SpaceProps) {
 
     const containerWidth = dotContainer.offsetWidth;
     const containerHeight = dotContainer.offsetHeight;
-    const numDots = 100;
+    const numDots = 50;
 
     for (let i = 0; i < numDots; i++) {
       const dot = document.createElement("div");
@@ -41,12 +41,13 @@ export function Space(props: SpaceProps) {
       dot.style.left = `${generateRandomNumber(0, containerWidth)}px`;
       dotContainer.appendChild(dot);
     }
-  }, []);
+  }, [dotContainerRef]);
 
   return (
     <div className={props.className} ref={dotContainerRef}>
       {Array.from({length: 100}).map((_, index) => (
         <Dot
+          className="dot"
           key={index}
           left={generateRandomNumber(0, 100)}
           top={generateRandomNumber(0, 100)}

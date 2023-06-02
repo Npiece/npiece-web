@@ -1,7 +1,4 @@
-:root {
-  font-size: 12px;
-  --gap-between-menuitem: 1em;
-}
+@use "../../default.scss";
 
 .nav {
   left: 0;
@@ -14,7 +11,7 @@
 
 .nav_logo {
   text-decoration: none;
-  color: #fff;
+  color: default.$primary-color;
   margin-right: 2em;
 }
 
@@ -32,7 +29,7 @@
 .nav_menu_vertical {
   display: flex;
   flex-direction: column;
-  font-size: 2em;
+  font-size: 1.5em;
   height: 100%;
   align-content: center;
   text-align: center;
@@ -43,37 +40,37 @@
   text-decoration: none;
   font-size: 1.5em;
   font-weight: bold;
-  color: #2a2a2f;
+  color: default.$secondary-color;
   margin-right: 2em;
   align-items: center;
-}
 
-.nav_item:hover {
-  color: #fff;
-}
+  &:hover {
+    color: default.$primary-color;
+  }
 
-.nav_item.active {
-  color: #fff;
-}
+  &.active {
+    color: default.$primary-color;
+  }
 
-.nav_item.vertical {
-  margin-top: var(--gap-between-menuitem);
+  &.vertical {
+    margin-top: default.$gap-menu-items;
 
-  width: 100%;
-  text-align: center;
+    width: 100%;
+    text-align: center;
+  }
 }
 
 .nav_container {
   width: 100%;
-  max-width: 1400px;
+  max-width: default.$max-width;
   /* below makes the container centered to nav element */
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-top: 1em;
-  padding-left: 2em;
-  padding-right: 2em;
+  padding-top: default.$gap-menu-items;
+  padding-left: default.$gap-menu-items;
+  padding-right: default.$gap-menu-items;
 }
 
 .menu_context {
@@ -85,7 +82,7 @@
 
 .menu_slider {
   position: fixed;
-  background: #18181c;
+  background: default.$slidebar-color;
   z-index: -2;
   top: -100vh;
   left: 0;
@@ -99,10 +96,10 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-}
 
-.menu_slider ul li {
-  margin-top: var(--gap-between-menuitem);
-  list-style: none;
-  text-decoration: none;
+  & ul li {
+    margin-top: default.$gap-menu-items;
+    list-style: none;
+    text-decoration: none;
+  }
 }

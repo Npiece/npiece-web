@@ -1,0 +1,37 @@
+@use "./default.scss";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  background: default.$background-color;
+  color: default.$primary-color;
+  min-height: 400px;
+  position: absolute;
+}
+
+@media (min-height: 400px) {
+  html,
+  body {
+    position: relative;
+  }
+}
+
+.page {
+  /* put element to center */
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 0;
+  width: 100%;
+  max-width: default.$max-width;
+  height: 100vh;
+  margin: 0 auto;
+  padding-top: 5em;
+}

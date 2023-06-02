@@ -1,4 +1,4 @@
-import "./App.css";
+import "./App.scss";
 import Nav from "./components/navbar/Nav";
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import {IntroPage} from "./pages/Intro";

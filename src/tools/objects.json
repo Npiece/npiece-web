@@ -1,0 +1,15 @@
+{
+    "testnet": {
+        "rpc": "",
+        "gas_coin": "0x2::sui::SUI",
+        "package": "0xa5adeafef1054d43d368e794a3e75bee7c9d58bbdfc3fcf8b32836c8223d13f6",
+        "collection": "",
+        "nft_type": "0x6cb3f91b410713730d4b68cff7487efad05f8c7a0e26b32e0db806caac022b51::nft::Punk",
+        "feetable_sui": "0x66952d1a28dcd6628f58173e03517d162cc36eb1f7adb075baac63d0526faf07",
+        "publisher": "0x002538d6f536ae2b933805cd145e25b27d8bd0d2fdcf8ae724b299693c2bb220"
+    },
+    "mainnet": {
+        "rpc": "",
+        "nft_type": ""
+    }
+}

@@ -1,4 +1,4 @@
-import "./Nav.css";
+import "./Nav.scss";
 import {useState, useEffect} from "react";
 import NavMenu from "./NavMenu";
 import {Npiece} from "../../assets/Npiece";
@@ -61,7 +61,9 @@ const BurgerWrapper = styled.div<BurgerWrapperProps>`
 function Nav() {
   const mobileMediaSize = 767;
 
-  const [isMobile, setIsMobile] = useState(window.innerWidth < mobileMediaSize);
+  const [isMobile, setIsMobile] = useState<boolean>(
+    window.innerWidth < mobileMediaSize
+  );
   const [navOpen, setNavOpen] = useState(false);
 
   useEffect(() => {

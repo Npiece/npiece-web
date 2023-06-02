@@ -1,9 +1,9 @@
 import {ComponentProps, ReactNode, useState} from "react";
-import {Menu} from "@headlessui/react";
-import {ConnectModal, useWalletKit} from "@mysten/wallet-kit";
-import {formatAddress} from "@mysten/sui.js";
-import {styled} from "styled-components";
 import {CheckIcon, ChevronIcon} from "../../assets/Icons";
+import {styled} from "styled-components";
+import {Menu} from "@headlessui/react";
+import {formatAddress} from "@mysten/sui.js";
+import {ConnectModal, useWalletKit} from "@mysten/wallet-kit";
 
 interface ConnectButtonProps extends ComponentProps<typeof Button> {
   connectText?: ReactNode;
@@ -14,7 +14,7 @@ interface ButtonProps {
 }
 
 interface AccountProps {
-  active?: boolean;
+  active?: string;
 }
 
 const Button = styled.button<ButtonProps>`
@@ -23,8 +23,8 @@ const Button = styled.button<ButtonProps>`
   font-weight: bold;
   font-size: 1.2em;
   text-decoration: none;
-  padding: 15px 24px;
-  width: 160px;
+  padding: 10px 15px;
+  width: 150px;
   border-radius: 12px;
   background-color: ${({color}) =>
     color == "primary" ? "#2a2a2f" : color == "connected" ? "#fff" : "#2a2a2f"};
@@ -46,7 +46,7 @@ const MenuItems = styled(Menu.Items)`
   display: flex;
   right: 0;
   margin-top: 4px;
-  width: 160px;
+  width: 150px;
   max-height: 200;
   overflow: auto;
   border-radius: 12px;
@@ -114,7 +114,9 @@ export function ConnectButton({
             {accounts.map((account) => (
               <Menu.Item key={account.address}>
                 <Account
-                  active={account.address === currentAccount.address}
+                  active={(
+                    account.address === currentAccount.address
+                  ).toString()}
                   onClick={() => selectAccount(account)}
                 >
                   {formatAddress(account.address)}

@@ -1,4 +1,4 @@
-import "./Intro.css";
+import "./Intro.scss";
 import {NpiecePunks} from "../assets/NpiecePunks";
 import {Replay} from "../assets/Replay";
 import {Space} from "../assets/Space";

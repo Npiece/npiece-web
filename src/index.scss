@@ -1,13 +1,15 @@
-@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap");
+@use "./default.scss";
 
 html,
 body {
   margin: 0;
   padding: 0;
   height: 100vh;
+  min-height: default.$min-height;
   width: 100vw;
   overflow: hidden;
-  font-family: "Noto Sans KR", sans-serif;
+  font-family: default.$font-stack;
+  font-size: default.$base-font-size;
 }
 
 #root {
